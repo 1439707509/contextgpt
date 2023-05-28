@@ -2,7 +2,7 @@
 Add multi-page context association to chatGPT3.5 to achieve better translation results 
 
 https://github.com/zyddnys/manga-image-translator
-Translate the following sentence into English: "Build upon the manga-image-translator library."
+"Build upon the manga-image-translator library."
 
 
 
