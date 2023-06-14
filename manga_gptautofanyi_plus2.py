@@ -8,11 +8,14 @@ import jsonschema
 import json5
 
 # 自用key
-openai.api_key = ""
-
-os.environ["http_proxy"] = "http://127.0.0.1:7890"
-os.environ["https_proxy"] = "http://127.0.0.1:7890"
-
+openai.api_key = os.getenv('OPENAI_API_KEY','')
+OPENAI_HTTP_PROXY = os.getenv('OPENAI_HTTP_PROXY','')
+if OPENAI_HTTP_PROXY:
+    proxies = {
+        'http': 'http://%s' % OPENAI_HTTP_PROXY,
+        'https': 'http://%s' % OPENAI_HTTP_PROXY
+    }
+    openai.proxy = proxies
 # frequency_penalty_default = 0.35 # 用于CG这种气泡少的 0.35
 # frequency_penalty_default = 0.1 # 用于漫画这种气泡多的
 frequency_penalty_default = 0 # 用于漫画这种气泡多的
